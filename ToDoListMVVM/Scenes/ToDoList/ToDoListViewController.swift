@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LBTATools
 
 final class ToDoListViewController: UIViewController {
     
@@ -26,7 +27,7 @@ final class ToDoListViewController: UIViewController {
     private func setupLayout() {
         view.backgroundColor = .yellow
         view.addSubview(tableView)
-        
+        tableView.fillSuperview()
         
     }
     

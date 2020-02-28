@@ -1,0 +1,20 @@
+PODS:
+  - LBTATools (1.0.12)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - LBTATools
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - LBTATools
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 2684411d19dd77230c3e5fd010608bcd9e3ff3ac
+
+COCOAPODS: 1.8.4
