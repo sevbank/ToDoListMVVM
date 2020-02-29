@@ -27,7 +27,6 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
             case .failure(let error):
                 print(error)
             case .success(let items):
-                print("items are fetched")
                 self.toDoList = items.sorted{$0.timestamp.dateValue() > $1.timestamp.dateValue()}
                 self.notify(.showToDoList(self.toDoList.map{$0.title}))
             }

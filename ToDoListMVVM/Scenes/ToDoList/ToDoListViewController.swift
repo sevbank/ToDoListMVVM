@@ -10,7 +10,7 @@ import UIKit
 import LBTATools
 import Firebase
 
-final class ToDoListViewController: UIViewController {
+final class ToDoListViewController: BaseViewController {
     
     private lazy var tableView = UITableView()
     var viewModel: ToDoListViewModel! {
@@ -73,7 +73,7 @@ extension ToDoListViewController: ToDoListViewModelDelegate {
     func handleViewModelOutput(_ output: ToDoListViewModelOutput) {
         switch output {
         case .setLoading(let loading):
-            UIApplication.shared.isNetworkActivityIndicatorVisible = loading
+            handleIndicator(in: self.view, loading: loading)
         case .updateTitle(let title):
             navigationItem.title = title
         case .showToDoList(let itemList):
