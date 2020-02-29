@@ -12,6 +12,7 @@ protocol ToDoListViewModelProtocol {
     var delegate: ToDoListViewModelDelegate? {get set}
     func load(userId: String)
     func addNewItem(item: ToDoItemModel)
+    func deleteItem(index: Int)
 }
 
 enum ToDoListViewModelOutput: Equatable {

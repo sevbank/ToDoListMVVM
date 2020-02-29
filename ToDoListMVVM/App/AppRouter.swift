@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class AppRouter {
     
@@ -17,6 +18,7 @@ final class AppRouter {
     }
     
     func start() {
+        FirebaseApp.configure()
         let viewController = ToDoListBuilder.make()
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController

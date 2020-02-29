@@ -27,8 +27,9 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
             case .failure(let error):
                 print(error)
             case .success(let items):
-                self.toDoList = items
-                self.notify(.showToDoList(items.map{$0.title}))
+                print("items are fetched")
+                self.toDoList = items.sorted{$0.timestamp.dateValue() > $1.timestamp.dateValue()}
+                self.notify(.showToDoList(self.toDoList.map{$0.title}))
             }
         }
     }
@@ -37,6 +38,18 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
         notify(.setLoading(true))
         service.addNewItem(item: item) { (error) in
             self.notify(.setLoading(false))
+            if let error = error {
+                print(error)
+                return
+            }
+            self.load(userId: item.ownerId)
+        }
+    }
+    
+    func deleteItem(index: Int) {
+        let item = toDoList[index]
+        notify(.setLoading(true))
+        service.deleteItem(item: item) { (error) in
             if let error = error {
                 print(error)
                 return

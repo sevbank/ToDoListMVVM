@@ -225,12 +225,10 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Firebase/Firestore
   - LBTATools
-  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -250,7 +248,6 @@ SPEC REPOS:
     - LBTATools
     - leveldb-library
     - nanopb
-    - SVProgressHUD
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -269,8 +266,7 @@ SPEC CHECKSUMS:
   LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 47a567b2da82265b2f39d617ead63dc9aeaf9b1d
+PODFILE CHECKSUM: 208cb93dbe28924d9e33eabf25d52fc6d41a22d7
 
 COCOAPODS: 1.8.4

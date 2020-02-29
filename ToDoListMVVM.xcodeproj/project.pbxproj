@@ -21,11 +21,12 @@
 		5C90AAE32409D0B800029BCB /* ToDoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AAE22409D0B800029BCB /* ToDoItemTableViewCell.swift */; };
 		5C90AAE52409FEDA00029BCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */; };
 		5C90AAE8240A020900029BCB /* Firestore+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AAE7240A020900029BCB /* Firestore+Extension.swift */; };
-		9B16F58CB09C27A317425FFE /* Pods_ToDoListMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CDA18AFAB6D01CFA1BEA86 /* Pods_ToDoListMVVM.framework */; };
+		5CCAE5ED240AAEB300315C6C /* Pods_ToDoListMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9D8E9BDBE39A35E146B072 /* Pods_ToDoListMVVM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E3C9210DD2813BE8B63146C /* Pods-ToDoListMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListMVVM.debug.xcconfig"; path = "Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM.debug.xcconfig"; sourceTree = "<group>"; };
+		5B9D8E9BDBE39A35E146B072 /* Pods_ToDoListMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90AA2C2409AAA400029BCB /* ToDoListMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90AA2F2409AAA400029BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C90AA382409AAA600029BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C90AAE7240A020900029BCB /* Firestore+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extension.swift"; sourceTree = "<group>"; };
 		A57A03A56878928276C77E41 /* Pods-ToDoListMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListMVVM.release.xcconfig"; path = "Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM.release.xcconfig"; sourceTree = "<group>"; };
-		B0CDA18AFAB6D01CFA1BEA86 /* Pods_ToDoListMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B16F58CB09C27A317425FFE /* Pods_ToDoListMVVM.framework in Frameworks */,
+				5CCAE5ED240AAEB300315C6C /* Pods_ToDoListMVVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,6 @@
 		5C90AA452409AE7D00029BCB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5C90AA382409AAA600029BCB /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -118,6 +117,7 @@
 		5C90AA472409AE9D00029BCB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C90AA382409AAA600029BCB /* Assets.xcassets */,
 				5C90AA3A2409AAA600029BCB /* LaunchScreen.storyboard */,
 				5C90AA3D2409AAA600029BCB /* Info.plist */,
 				5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */,
@@ -157,7 +157,7 @@
 		F86C7C67F688EDB97E9B62CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B0CDA18AFAB6D01CFA1BEA86 /* Pods_ToDoListMVVM.framework */,
+				5B9D8E9BDBE39A35E146B072 /* Pods_ToDoListMVVM.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 				5C90AA282409AAA400029BCB /* Sources */,
 				5C90AA292409AAA400029BCB /* Frameworks */,
 				5C90AA2A2409AAA400029BCB /* Resources */,
-				1CB94B3F24735FE69199ABDF /* [CP] Embed Pods Frameworks */,
+				06EEAFD6C1E944B07DC55791 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +240,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		06EEAFD6C1E944B07DC55791 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0FC74B24ABA17E92C58FD50E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,23 +277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1CB94B3F24735FE69199ABDF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

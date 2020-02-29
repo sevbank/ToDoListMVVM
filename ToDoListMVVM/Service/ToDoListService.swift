@@ -11,11 +11,10 @@ import Firebase
 protocol ToDoListServiceProtocol {
     func fetchToDoList(userId: String, completion: @escaping (Result<[ToDoItemModel], Error>) -> ())
     func addNewItem(item: ToDoItemModel, completion: @escaping (Error?)->())
+    func deleteItem(item: ToDoItemModel, completion: @escaping (Error?)->())
 }
 
 final class ToDoListService: ToDoListServiceProtocol {
-    
-    
     
     func fetchToDoList(userId: String, completion: @escaping (Result<[ToDoItemModel], Error>) -> ()) {
         
@@ -26,8 +25,9 @@ final class ToDoListService: ToDoListServiceProtocol {
                 return
             }
             snapshot?.documents.forEach({ (doc) in
-                let data = try! doc.decode(as: ToDoItemModel.self)
-                itemList.append(data)
+                let data = doc.data()
+                let model = ToDoItemModel(dictionary: data)
+                itemList.append(model)
             })
             DispatchQueue.main.async {
                 completion(.success(itemList))
@@ -41,5 +41,11 @@ final class ToDoListService: ToDoListServiceProtocol {
         let itemId = item.id
         let dictionary = item.dictionary
         Firestore.firestore().collection("users").document(ownerId).collection("items").document(itemId).setData(dictionary, completion: completion)
+    }
+    
+    func deleteItem(item: ToDoItemModel, completion: @escaping (Error?) -> ()) {
+        let ownerId = item.ownerId
+        let itemId = item.id
+        Firestore.firestore().collection("users").document(ownerId).collection("items").document(itemId).delete(completion: completion)
     }
 }

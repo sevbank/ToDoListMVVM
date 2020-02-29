@@ -6,14 +6,28 @@
 //  Copyright © 2020 Sevban Kocabas. All rights reserved.
 //
 
-import Foundation
+import Firebase
 
-struct ToDoItemModel: Codable {
-    let ownerId: String
-    let id: String
-    let title: String
-    
+class ToDoItemModel {
+    var ownerId: String
+    var id: String
+    var title: String
+    var timestamp: Timestamp
     var dictionary: [String: Any] {
-        return ["ownerId": ownerId, "id": id, "title": title]
+        return ["ownerId": ownerId, "id": id, "title": title, "timestamp": timestamp]
+    }
+    
+    init(ownerId: String, id: String, title: String, timestamp: Timestamp) {
+        self.ownerId = ownerId
+        self.id = id
+        self.title = title
+        self.timestamp = timestamp
+    }
+    
+    init(dictionary: [String: Any]) {
+        self.ownerId = dictionary["ownerId"] as? String ?? ""
+        self.id = dictionary["id"] as? String ?? ""
+        self.title = dictionary["title"] as? String ?? ""
+        self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp()
     }
 }

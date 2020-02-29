@@ -8,21 +8,18 @@
 
 import UIKit
 import LBTATools
-import SVProgressHUD
+import Firebase
 
 final class ToDoListViewController: UIViewController {
     
     private lazy var tableView = UITableView()
-    
     var viewModel: ToDoListViewModel! {
         didSet {
             viewModel.delegate = self
         }
     }
-    
     private let cellId = "ToDoItemTableViewCell"
     var toDoList: [String] = []
-    
     let uid: String = {
         if let uid = UserDefaults.standard.object(forKey: "uid") as? String {
             return uid
@@ -48,18 +45,24 @@ final class ToDoListViewController: UIViewController {
         navigationItem.setRightBarButton(UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addNewItem)), animated: true)
     }
     
+    @objc private func deleteItem(index: Int) {
+        viewModel.deleteItem(index: index)
+    }
+    
     @objc private func addNewItem() {
         let alertController = UIAlertController(title: "Add New Task", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = "Eg: Buy eggs"
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
             let itemId = UUID().uuidString
             let task = alertController.textFields?.first?.text
-            let item = ToDoItemModel(ownerId: self.uid, id: itemId, title: task!)
+            let item = ToDoItemModel(ownerId: self.uid, id: itemId, title: task!, timestamp: Timestamp())
             self.viewModel.addNewItem(item: item)
         }
         alertController.addAction(action)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
     
@@ -75,13 +78,19 @@ extension ToDoListViewController: ToDoListViewModelDelegate {
             navigationItem.title = title
         case .showToDoList(let itemList):
             toDoList = itemList
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 }
 
 extension ToDoListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteItem(index: indexPath.item)
+        }
+    }
 }
 
 extension ToDoListViewController: UITableViewDataSource {
