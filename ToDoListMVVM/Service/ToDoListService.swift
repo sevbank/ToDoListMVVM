@@ -6,21 +6,40 @@
 //  Copyright © 2020 Sevban Kocabas. All rights reserved.
 //
 
-import Foundation
+import Firebase
 
 protocol ToDoListServiceProtocol {
-    static func fetchToDoList(completion: @escaping (Result<[ToDoItemModel], Error>) -> ())
-    static func addNewItem(item: ToDoItemModel, completion: @escaping (Error?)->())
+    func fetchToDoList(userId: String, completion: @escaping (Result<[ToDoItemModel], Error>) -> ())
+    func addNewItem(item: ToDoItemModel, completion: @escaping (Error?)->())
 }
 
 final class ToDoListService: ToDoListServiceProtocol {
-    static func fetchToDoList(completion: @escaping (Result<[ToDoItemModel], Error>) -> ()) {
-        completion(.success([]))
+    
+    
+    
+    func fetchToDoList(userId: String, completion: @escaping (Result<[ToDoItemModel], Error>) -> ()) {
+        
+        var itemList = [ToDoItemModel]()
+        Firestore.firestore().collection("users").document(userId).collection("items").getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            snapshot?.documents.forEach({ (doc) in
+                let data = try! doc.decode(as: ToDoItemModel.self)
+                itemList.append(data)
+            })
+            DispatchQueue.main.async {
+                completion(.success(itemList))
+                return
+            }
+        }
     }
     
-    static func addNewItem(item: ToDoItemModel, completion: @escaping (Error?)->()) {
+    func addNewItem(item: ToDoItemModel, completion: @escaping (Error?)->()) {
         let ownerId = item.ownerId
         let itemId = item.id
-        
+        let dictionary = item.dictionary
+        Firestore.firestore().collection("users").document(ownerId).collection("items").document(itemId).setData(dictionary, completion: completion)
     }
 }

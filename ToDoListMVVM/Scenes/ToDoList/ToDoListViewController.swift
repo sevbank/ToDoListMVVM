@@ -28,7 +28,7 @@ final class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        viewModel.load()
+        viewModel.load(userId: uid)
     }
     
     private func setupLayout() {
@@ -44,6 +44,7 @@ final class ToDoListViewController: UIViewController {
         let itemId = UUID().uuidString
         let item = ToDoItemModel(ownerId: uid, id: itemId, title: "test item")
         viewModel.addNewItem(item: item)
+        
     }
     
 
@@ -52,10 +53,17 @@ final class ToDoListViewController: UIViewController {
 extension ToDoListViewController: ToDoListViewModelDelegate {
     func handleViewModelOutput(_ output: ToDoListViewModelOutput) {
         switch output {
-        case .setLoading(let loading):
-            loading == true ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+        case .setLoading(let loading):break
+//            if loading {
+//                SVProgressHUD.show()
+//            }else {
+//                SVProgressHUD.dismiss()
+//            }
         case .updateTitle(let title):
             navigationItem.title = title
+        case .showToDoList(let itemList):
+            toDoList = itemList
+            tableView.reloadData()
         }
     }
 }

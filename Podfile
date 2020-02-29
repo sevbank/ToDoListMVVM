@@ -8,6 +8,7 @@ target 'ToDoListMVVM' do
   # Pods for ToDoListMVVM
   pod 'LBTATools'
   pod 'SVProgressHUD'
+  pod 'Firebase/Firestore'
 
 
 end

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ToDoItemModel {
+struct ToDoItemModel: Codable {
     let ownerId: String
     let id: String
     let title: String

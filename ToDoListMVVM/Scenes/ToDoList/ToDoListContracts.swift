@@ -10,13 +10,14 @@ import Foundation
 
 protocol ToDoListViewModelProtocol {
     var delegate: ToDoListViewModelDelegate? {get set}
-    func load()
+    func load(userId: String)
     func addNewItem(item: ToDoItemModel)
 }
 
 enum ToDoListViewModelOutput: Equatable {
     case updateTitle(String)
     case setLoading(Bool)
+    case showToDoList([String])
 }
 
 protocol ToDoListViewModelDelegate: class {

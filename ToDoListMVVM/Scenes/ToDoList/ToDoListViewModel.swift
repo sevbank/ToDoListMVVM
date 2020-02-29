@@ -18,14 +18,31 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
         self.service = service
     }
     
-    func load() {
+    func load(userId: String) {
+        notify(.setLoading(true))
         notify(.updateTitle("Items"))
+        service.fetchToDoList(userId: userId) { (result) in
+            self.notify(.setLoading(false))
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let items):
+                self.toDoList = items
+                self.notify(.showToDoList(items.map{$0.title}))
+            }
+        }
     }
     
     func addNewItem(item: ToDoItemModel) {
-        let data = item.dictionary
         notify(.setLoading(true))
-        notify(.setLoading(false))
+        service.addNewItem(item: item) { (error) in
+            self.notify(.setLoading(false))
+            if let error = error {
+                print(error)
+                return
+            }
+            self.load(userId: item.ownerId)
+        }
     }
     
     private func notify(_ output: ToDoListViewModelOutput) {

@@ -19,6 +19,8 @@
 		5C90AA572409C68B00029BCB /* ToDoListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AA562409C68B00029BCB /* ToDoListService.swift */; };
 		5C90AA592409C84D00029BCB /* ToDoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AA582409C84D00029BCB /* ToDoItemModel.swift */; };
 		5C90AAE32409D0B800029BCB /* ToDoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AAE22409D0B800029BCB /* ToDoItemTableViewCell.swift */; };
+		5C90AAE52409FEDA00029BCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */; };
+		5C90AAE8240A020900029BCB /* Firestore+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AAE7240A020900029BCB /* Firestore+Extension.swift */; };
 		9B16F58CB09C27A317425FFE /* Pods_ToDoListMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CDA18AFAB6D01CFA1BEA86 /* Pods_ToDoListMVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		5C90AA562409C68B00029BCB /* ToDoListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListService.swift; sourceTree = "<group>"; };
 		5C90AA582409C84D00029BCB /* ToDoItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemModel.swift; sourceTree = "<group>"; };
 		5C90AAE22409D0B800029BCB /* ToDoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemTableViewCell.swift; sourceTree = "<group>"; };
+		5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C90AAE7240A020900029BCB /* Firestore+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extension.swift"; sourceTree = "<group>"; };
 		A57A03A56878928276C77E41 /* Pods-ToDoListMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListMVVM.release.xcconfig"; path = "Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM.release.xcconfig"; sourceTree = "<group>"; };
 		B0CDA18AFAB6D01CFA1BEA86 /* Pods_ToDoListMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +83,7 @@
 				5C90AA482409AEF100029BCB /* Service */,
 				5C90AA442409AE6300029BCB /* Scenes */,
 				5C90AA452409AE7D00029BCB /* Resources */,
+				5C90AAE6240A01E100029BCB /* Extensions */,
 				5C90AA472409AE9D00029BCB /* Supporting Files */,
 			);
 			path = ToDoListMVVM;
@@ -115,6 +120,7 @@
 			children = (
 				5C90AA3A2409AAA600029BCB /* LaunchScreen.storyboard */,
 				5C90AA3D2409AAA600029BCB /* Info.plist */,
+				5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +144,14 @@
 				5C90AAE22409D0B800029BCB /* ToDoItemTableViewCell.swift */,
 			);
 			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		5C90AAE6240A01E100029BCB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C90AAE7240A020900029BCB /* Firestore+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F86C7C67F688EDB97E9B62CD /* Frameworks */ = {
@@ -219,6 +233,7 @@
 			files = (
 				5C90AA3C2409AAA600029BCB /* LaunchScreen.storyboard in Resources */,
 				5C90AA392409AAA600029BCB /* Assets.xcassets in Resources */,
+				5C90AAE52409FEDA00029BCB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +294,7 @@
 				5C90AA302409AAA400029BCB /* AppDelegate.swift in Sources */,
 				5C90AA4F2409B23800029BCB /* ToDoListViewController.swift in Sources */,
 				5C90AA552409B2A100029BCB /* ToDoListContracts.swift in Sources */,
+				5C90AAE8240A020900029BCB /* Firestore+Extension.swift in Sources */,
 				5C90AA4A2409AF4F00029BCB /* AppRouter.swift in Sources */,
 				5C90AA532409B28D00029BCB /* ToDoListBuilder.swift in Sources */,
 			);
