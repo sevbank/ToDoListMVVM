@@ -23,7 +23,15 @@ final class ToDoListViewController: UIViewController {
     private let cellId = "ToDoItemTableViewCell"
     var toDoList: [String] = []
     
-    let uid = UUID().uuidString
+    let uid: String = {
+        if let uid = UserDefaults.standard.object(forKey: "uid") as? String {
+            return uid
+        } else {
+            let uid = UUID().uuidString
+            UserDefaults.standard.set(uid, forKey: "uid")
+            return uid
+        }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +49,18 @@ final class ToDoListViewController: UIViewController {
     }
     
     @objc private func addNewItem() {
-        let itemId = UUID().uuidString
-        let item = ToDoItemModel(ownerId: uid, id: itemId, title: "test item")
-        viewModel.addNewItem(item: item)
-        
+        let alertController = UIAlertController(title: "Add New Task", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Eg: Buy eggs"
+        }
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            let itemId = UUID().uuidString
+            let task = alertController.textFields?.first?.text
+            let item = ToDoItemModel(ownerId: self.uid, id: itemId, title: task!)
+            self.viewModel.addNewItem(item: item)
+        }
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
     }
     
 
@@ -53,12 +69,8 @@ final class ToDoListViewController: UIViewController {
 extension ToDoListViewController: ToDoListViewModelDelegate {
     func handleViewModelOutput(_ output: ToDoListViewModelOutput) {
         switch output {
-        case .setLoading(let loading):break
-//            if loading {
-//                SVProgressHUD.show()
-//            }else {
-//                SVProgressHUD.dismiss()
-//            }
+        case .setLoading(let loading):
+            UIApplication.shared.isNetworkActivityIndicatorVisible = loading
         case .updateTitle(let title):
             navigationItem.title = title
         case .showToDoList(let itemList):
@@ -76,12 +88,9 @@ extension ToDoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoList.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ToDoItemTableViewCell
         cell.textLabel?.text = toDoList[indexPath.item]
         return cell
     }
-    
-    
 }
