@@ -18,7 +18,7 @@ protocol ToDoListViewModelProtocol {
 enum ToDoListViewModelOutput: Equatable {
     case updateTitle(String)
     case setLoading(Bool)
-    case showToDoList([String])
+    case showToDoList([String])//if more complex than string, use presentation model
 }
 
 protocol ToDoListViewModelDelegate: class {

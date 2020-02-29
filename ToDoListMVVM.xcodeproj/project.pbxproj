@@ -20,7 +20,6 @@
 		5C90AA592409C84D00029BCB /* ToDoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AA582409C84D00029BCB /* ToDoItemModel.swift */; };
 		5C90AAE32409D0B800029BCB /* ToDoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AAE22409D0B800029BCB /* ToDoItemTableViewCell.swift */; };
 		5C90AAE52409FEDA00029BCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */; };
-		5C90AAE8240A020900029BCB /* Firestore+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AAE7240A020900029BCB /* Firestore+Extension.swift */; };
 		5CCAE5ED240AAEB300315C6C /* Pods_ToDoListMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9D8E9BDBE39A35E146B072 /* Pods_ToDoListMVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +41,6 @@
 		5C90AA582409C84D00029BCB /* ToDoItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemModel.swift; sourceTree = "<group>"; };
 		5C90AAE22409D0B800029BCB /* ToDoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemTableViewCell.swift; sourceTree = "<group>"; };
 		5C90AAE42409FEDA00029BCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5C90AAE7240A020900029BCB /* Firestore+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extension.swift"; sourceTree = "<group>"; };
 		A57A03A56878928276C77E41 /* Pods-ToDoListMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListMVVM.release.xcconfig"; path = "Target Support Files/Pods-ToDoListMVVM/Pods-ToDoListMVVM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +147,6 @@
 		5C90AAE6240A01E100029BCB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5C90AAE7240A020900029BCB /* Firestore+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,7 +291,6 @@
 				5C90AA302409AAA400029BCB /* AppDelegate.swift in Sources */,
 				5C90AA4F2409B23800029BCB /* ToDoListViewController.swift in Sources */,
 				5C90AA552409B2A100029BCB /* ToDoListContracts.swift in Sources */,
-				5C90AAE8240A020900029BCB /* Firestore+Extension.swift in Sources */,
 				5C90AA4A2409AF4F00029BCB /* AppRouter.swift in Sources */,
 				5C90AA532409B28D00029BCB /* ToDoListBuilder.swift in Sources */,
 			);
