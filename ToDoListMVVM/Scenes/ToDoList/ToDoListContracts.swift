@@ -11,6 +11,7 @@ import Foundation
 protocol ToDoListViewModelProtocol {
     var delegate: ToDoListViewModelDelegate? {get set}
     func load()
+    func addNewItem(item: ToDoItemModel)
 }
 
 enum ToDoListViewModelOutput: Equatable {

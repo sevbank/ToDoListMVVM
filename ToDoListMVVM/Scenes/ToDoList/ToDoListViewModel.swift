@@ -19,7 +19,13 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
     }
     
     func load() {
-        
+        notify(.updateTitle("Items"))
+    }
+    
+    func addNewItem(item: ToDoItemModel) {
+        let data = item.dictionary
+        notify(.setLoading(true))
+        notify(.setLoading(false))
     }
     
     private func notify(_ output: ToDoListViewModelOutput) {
