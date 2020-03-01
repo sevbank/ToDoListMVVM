@@ -21,7 +21,8 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
     func load(userId: String) {
         notify(.setLoading(true))
         notify(.updateTitle("Items"))
-        service.fetchToDoList(userId: userId) { (result) in
+        service.fetchToDoList(userId: userId) { [weak self] (result) in
+            guard let `self` = self else {return}
             self.notify(.setLoading(false))
             switch result {
             case .failure(let error):
@@ -35,7 +36,8 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
     
     func addNewItem(item: ToDoItemModel) {
         notify(.setLoading(true))
-        service.addNewItem(item: item) { (error) in
+        service.addNewItem(item: item) { [weak self] (error) in
+            guard let `self` = self else {return}
             self.notify(.setLoading(false))
             if let error = error {
                 print(error)
@@ -48,7 +50,8 @@ class ToDoListViewModel: ToDoListViewModelProtocol {
     func deleteItem(index: Int) {
         let item = toDoList[index]
         notify(.setLoading(true))
-        service.deleteItem(item: item) { (error) in
+        service.deleteItem(item: item) { [weak self] (error) in
+            guard let `self` = self else {return}
             if let error = error {
                 print(error)
                 return
